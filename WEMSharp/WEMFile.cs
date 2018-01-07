@@ -598,7 +598,7 @@ namespace WEMSharp
             {
                 ogg.WriteVorbisHeader(3);
 
-                byte[] vendor = Encoding.ASCII.GetBytes("Converted from Audiokinetic WWise by WEMSharp");
+                byte[] vendor = Encoding.UTF8.GetBytes("converted from Audiokinetic Wwise by ww2ogg 0.24");
                 ogg.BitWrite((uint)vendor.Length);
                 for (int i = 0; i < vendor.Length; i++)
                 {
@@ -613,14 +613,14 @@ namespace WEMSharp
                 {
                     ogg.BitWrite((uint)2);
 
-                    byte[] loopStart = Encoding.ASCII.GetBytes("LoopStart=" + this._loopStart.ToString());
+                    byte[] loopStart = Encoding.UTF8.GetBytes("LoopStart=" + this._loopStart.ToString());
                     ogg.BitWrite((uint)loopStart.Length);
                     for (int i = 0; i < loopStart.Length; i++)
                     {
                         ogg.BitWrite(loopStart[i]);
                     }
 
-                    byte[] loopEnd = Encoding.ASCII.GetBytes("LoopEnd=" + this._loopEnd.ToString());
+                    byte[] loopEnd = Encoding.UTF8.GetBytes("LoopEnd=" + this._loopEnd.ToString());
                     ogg.BitWrite((uint)loopEnd.Length);
                     for (int i = 0; i < loopEnd.Length; i++)
                     {

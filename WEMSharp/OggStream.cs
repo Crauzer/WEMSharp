@@ -106,18 +106,18 @@ namespace WEMSharp
                 this._pageBuffer[23] = 0;
                 this._pageBuffer[24] = 0;
                 this._pageBuffer[25] = 0;
-                Buffer.BlockCopy(BitConverter.GetBytes(segments), 0, this._pageBuffer, 26, 4);
+                this._pageBuffer[26] = (byte)segments;
 
                 for (uint i = 0, bytesLeft = this._payloadBytes; i < segments; i++)
                 {
                     if (bytesLeft >= SEGMENT_SIZE)
                     {
                         bytesLeft -= SEGMENT_SIZE;
-                        Buffer.BlockCopy(BitConverter.GetBytes(SEGMENT_SIZE), 0, this._pageBuffer, 27 + (int)i, 4);
+                        this._pageBuffer[27 + i] = (byte)SEGMENT_SIZE;
                     }
                     else
                     {
-                        Buffer.BlockCopy(BitConverter.GetBytes(bytesLeft), 0, this._pageBuffer, 27 + (int)i, 4);
+                        this._pageBuffer[27 + i] = (byte)bytesLeft;
                     }
                 }
 
@@ -160,7 +160,7 @@ namespace WEMSharp
 
         internal void WriteVorbisHeader(byte type)
         {
-            byte[] vorbisString = Encoding.ASCII.GetBytes("vorbis");
+            byte[] vorbisString = Encoding.UTF8.GetBytes("vorbis");
 
             BitWrite(type);
             for(int i = 0; i < vorbisString.Length; i++)
