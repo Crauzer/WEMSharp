@@ -2,6 +2,9 @@
 
 namespace WEMSharp
 {
+    /// <summary>
+    /// Wrapper around a Stream that supports reading bits
+    /// </summary>
     internal class BitStream
     {
         private Stream _stream;
@@ -9,11 +12,14 @@ namespace WEMSharp
         private int _bitsLeft;
         internal ulong TotalBitsRead { get; private set; }
 
-        public BitStream(Stream stream)
+        internal BitStream(Stream stream)
         {
             this._stream = stream;
         }
 
+        /// <summary>
+        /// Reads a bit from the Stream
+        /// </summary>
         internal byte GetBit()
         {
             if (this._bitsLeft == 0)
@@ -28,6 +34,10 @@ namespace WEMSharp
             return (this._bitBuffer & (0x80 >> this._bitsLeft)) != 0 ? (byte)1 : (byte)0;
         }
 
+        /// <summary>
+        /// Read an arbitary amount of bits from the stream
+        /// </summary>
+        /// <param name="bitCount">Amount of bits to read</param>
         internal uint Read(int bitCount)
         {
             uint result = 0;

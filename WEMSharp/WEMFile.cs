@@ -22,7 +22,13 @@ namespace WEMSharp
         private uint _dataChunkOffset = 0xFFFFFFFF;
         private uint _dataChunkSize = 0xFFFFFFFF;
 
+        /// <summary>
+        /// Channel Count
+        /// </summary>
         public ushort Channels { get; private set; }
+        /// <summary>
+        /// Sample Rate
+        /// </summary>
         public uint SampleRate { get; private set; }
         public uint AverageBytesPerSecond { get; private set; }
 
@@ -984,10 +990,22 @@ namespace WEMSharp
         }
     }
 
+    /// <summary>
+    /// Forcing of the OGG Packet Format
+    /// </summary>
     public enum WEMForcePacketFormat
     {
+        /// <summary>
+        /// Uses the original Mod Packet Format from the WEM file
+        /// </summary>
         NoForcePacketFormat,
+        /// <summary>
+        /// Forces to modify the original packets
+        /// </summary>
         ForceModPackets,
+        /// <summary>
+        /// Forces to not modify the original packets
+        /// </summary>
         ForceNoModPackets
     }
 }
