@@ -18,10 +18,12 @@ wem.GenerateOGG("locationOfTheOggFile", "locationOfCodebooksToUse", inlineCodebo
   * ForceNoModPackets   - Forces to not modify the original packets.
   
 * Inline Codebooks
+
 Whether codebooks should be loaded from the WEM file.
 
 If `false`, `codebooksLocation` must not be empty.
 If `true`, `codebooksLocation` should be empty.
 
 * Full Setup
+
 Whether the setup packet should be copied from the WEM file.
