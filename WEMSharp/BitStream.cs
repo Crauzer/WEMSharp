@@ -32,9 +32,9 @@ namespace WEMSharp
         {
             uint result = 0;
 
-            for(int i = 0; i < bitCount; i++)
+            for (int i = 0; i < bitCount; i++)
             {
-                if(GetBit() == 1)
+                if (GetBit() == 1)
                 {
                     result |= (1U << i);
                 }

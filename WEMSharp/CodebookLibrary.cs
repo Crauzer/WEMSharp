@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WEMSharp
 {
@@ -196,7 +193,7 @@ namespace WEMSharp
                         presentBool = sparsePresenceFlag == 1;
                     }
 
-                    if(presentBool)
+                    if (presentBool)
                     {
                         byte codewordLength = (byte)bitStream.Read(codewordLengthLength);
                         ogg.BitWrite(codewordLength, 5);
@@ -221,7 +218,7 @@ namespace WEMSharp
                     ogg.BitWrite(value, (byte)(valueLength + 1));
                 }
             }
-            else if(lookupType != 0)
+            else if (lookupType != 0)
             {
                 throw new Exception("There was an error copying a codebook");
             }

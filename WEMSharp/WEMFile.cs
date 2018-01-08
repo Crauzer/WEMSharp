@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WEMSharp
 {
@@ -598,7 +595,7 @@ namespace WEMSharp
             {
                 ogg.WriteVorbisHeader(3);
 
-                byte[] vendor = Encoding.UTF8.GetBytes("converted from Audiokinetic Wwise by ww2ogg 0.24");
+                byte[] vendor = Encoding.UTF8.GetBytes("Converted from Audiokinetic Wwise by WEMSharp");
                 ogg.BitWrite((uint)vendor.Length);
                 for (int i = 0; i < vendor.Length; i++)
                 {

@@ -152,7 +152,7 @@ namespace WEMSharp
 
         private void BitWrite(uint value, int size)
         {
-            for(int i = 0; i < size; i++)
+            for (int i = 0; i < size; i++)
             {
                 WriteBit((value & (1 << i)) != 0 ? (byte)1 : (byte)0);
             }
@@ -163,7 +163,7 @@ namespace WEMSharp
             byte[] vorbisString = Encoding.UTF8.GetBytes("vorbis");
 
             BitWrite(type);
-            for(int i = 0; i < vorbisString.Length; i++)
+            for (int i = 0; i < vorbisString.Length; i++)
             {
                 BitWrite(vorbisString[i]);
             }
